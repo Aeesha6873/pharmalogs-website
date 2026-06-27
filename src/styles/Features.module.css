@@ -715,8 +715,6 @@
   }
 }
 
-@import "./variables.module.css";
-
 .features {
   background: var(--paper);
   padding: 6rem 0 4rem;

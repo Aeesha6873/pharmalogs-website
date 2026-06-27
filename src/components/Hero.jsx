@@ -1,6 +1,6 @@
 // Hero.jsx
 import React, { useEffect, useState } from "react";
-import styles from "../styles/Hero.module.css";
+import styles from "../styles/hero.module.css";
 
 // SVG Icons
 const Icons = {
