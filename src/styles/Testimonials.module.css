@@ -755,6 +755,7 @@
 
 @media (max-width: 1024px) {
   .testimonials {
+    margin-top: 3rem;
     padding: 4rem 0;
   }
   .grid {

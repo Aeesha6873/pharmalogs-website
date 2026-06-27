@@ -1,8 +1,6 @@
-// Hero.jsx
 import React, { useEffect, useState } from "react";
 import styles from "../styles/hero.module.css";
 
-// SVG Icons
 const Icons = {
   arrow: (
     <svg
@@ -192,7 +190,6 @@ function Hero() {
       <div className={styles.bgGrid}></div>
 
       <div className={styles.heroContainer}>
-        {/* LEFT COLUMN */}
         <div className={styles.heroContent}>
           <div className={styles.trustBadge}>
             <span className={styles.badgeDot}></span>
@@ -270,7 +267,6 @@ function Hero() {
           </div>
         </div>
 
-        {/* RIGHT COLUMN - LEDGER */}
         <div className={styles.heroVisual}>
           <div className={styles.ledger}>
             <div className={styles.ledgerHeader}>

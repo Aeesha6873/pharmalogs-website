@@ -2,10 +2,11 @@
 
 .features {
   background: var(--paper);
-  padding: 4rem 0;
+  padding: 6rem 0 4rem;
   position: relative;
   overflow: hidden;
   border-bottom: 1px solid rgba(27, 79, 92, 0.04);
+  margin-top: 0;
 }
 
 .bgGlow1 {
@@ -91,7 +92,7 @@
   background: rgba(27, 79, 92, 0.06);
   padding: 0.25rem 1rem 0.25rem 0.7rem;
   border-radius: 999px;
-  margin-bottom: 0.5rem;
+  margin: 1rem;
   border: 1px solid rgba(27, 79, 92, 0.04);
 }
 
@@ -440,7 +441,7 @@
   display: flex;
   align-items: center;
   gap: 1.5rem;
-  margin-bottom: 1.5rem;
+  margin: 1.5rem;
 }
 
 .dividerLine {
@@ -510,6 +511,7 @@
 
 @media (max-width: 1024px) {
   .features {
+    margin-top: 2rem;
     padding: 3rem 0;
   }
   .grid {
@@ -713,15 +715,6 @@
   .ctaBtn:hover {
     transform: none !important;
   }
-}
-
-.features {
-  background: var(--paper);
-  padding: 6rem 0 4rem;
-  position: relative;
-  overflow: hidden;
-  border-bottom: 1px solid rgba(27, 79, 92, 0.04);
-  margin-top: 0;
 }
 
 #product {

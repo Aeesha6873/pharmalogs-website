@@ -2,10 +2,11 @@
 
 .pricing {
   background: var(--paper);
-  padding: 5rem 0;
+  padding: 6rem 0 4rem;
   position: relative;
   overflow: hidden;
   border-bottom: 1px solid rgba(27, 79, 92, 0.04);
+  margin-top: 0;
 }
 
 #pricing {
@@ -631,6 +632,7 @@
 
 @media (max-width: 1024px) {
   .pricing {
+    margin-top: 3rem;
     padding: 4rem 0;
   }
   .header h2 {

@@ -2,12 +2,11 @@
 
 .howItWorks {
   background: var(--paper);
-  padding: 5rem 0;
+  padding: 6rem 0 4rem;
   position: relative;
-  border-bottom: 1px solid rgba(27, 79, 92, 0.04);
-  width: 100%;
-  max-width: 100%;
   overflow: hidden;
+  border-bottom: 1px solid rgba(27, 79, 92, 0.04);
+  margin-top: 0;
 }
 
 .ledgerLine {
@@ -69,7 +68,7 @@
   background: rgba(27, 79, 92, 0.06);
   padding: 0.25rem 0.8rem;
   border-radius: 999px;
-  margin-bottom: 1rem;
+  margin: 1rem;
 }
 
 .header h2 {
@@ -346,7 +345,7 @@
   }
 
   .header {
-    margin-bottom: 3rem;
+    margin: 1rem;
   }
 
   .header h2 {
