@@ -1,0 +1,83 @@
+/* App.css or index.css - FIXED */
+@import "./styles/variables.module.css";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  /* overflow-x: hidden; */
+  width: 100%;
+  max-width: 100%;
+  position: relative;
+}
+
+body {
+  font-family: var(--body-font);
+  background: var(--paper);
+  color: var(--ink);
+  line-height: 1.6;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.container {
+  width: min(1200px, 90%);
+  margin: 0 auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--heading-font);
+  line-height: 1.1;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+}
+
+h2 {
+  font-size: clamp(2rem, 4vw, 2.5rem);
+}
+
+p {
+  color: var(--slate);
+}
+.hero,
+.features,
+.testimonials,
+.pricing,
+.cta,
+.footer {
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+}
+/* * {
+  outline: 1px solid red !important;
+} */

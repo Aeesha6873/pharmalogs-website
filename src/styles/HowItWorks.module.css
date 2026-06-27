@@ -1,0 +1,504 @@
+@import "./variables.module.css";
+
+.howItWorks {
+  background: var(--paper);
+  padding: 5rem 0;
+  position: relative;
+  border-bottom: 1px solid rgba(27, 79, 92, 0.04);
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.ledgerLine {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  gap: 12px;
+  padding: 0 2.5rem;
+  opacity: 0.06;
+  pointer-events: none;
+}
+
+.ledgerLine span {
+  flex: 1;
+  height: 1px;
+  background: var(--primary);
+  position: relative;
+}
+
+.ledgerLine span::after {
+  content: "";
+  position: absolute;
+  right: -2px;
+  top: -2px;
+  width: 4px;
+  height: 4px;
+  background: var(--primary);
+  border-radius: 50%;
+}
+
+.ledgerLine span:last-child::after {
+  display: none;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 2.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.header {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto 4rem;
+}
+
+.label {
+  display: inline-block;
+  font-family: var(--heading-font);
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  background: rgba(27, 79, 92, 0.06);
+  padding: 0.25rem 0.8rem;
+  border-radius: 999px;
+  margin-bottom: 1rem;
+}
+
+.header h2 {
+  font-family: var(--heading-font);
+  font-size: 38px;
+  font-weight: 600;
+  line-height: 1.15;
+  color: var(--ink);
+  letter-spacing: -1px;
+  margin: 0 0 0.75rem 0;
+}
+
+.subhead {
+  font-family: var(--body-font);
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--slate);
+  margin: 0;
+}
+
+.flow {
+  position: relative;
+  padding: 2rem 0 1rem;
+}
+
+.flowLine {
+  position: absolute;
+  top: 65px;
+  left: 40px;
+  right: 40px;
+  height: 2px;
+  background: rgba(27, 79, 92, 0.08);
+  border-radius: 1px;
+}
+
+.flowLineProgress {
+  height: 100%;
+  background: var(--primary);
+  border-radius: 1px;
+  transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.flowSteps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.flowStep {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 0.4;
+  padding: 1.5rem 1rem;
+  border-radius: 12px;
+  background: transparent;
+  border: 1px solid transparent;
+}
+
+.flowStep:hover {
+  opacity: 0.7;
+}
+
+.flowStep.active {
+  opacity: 1;
+  background: white;
+  border-color: rgba(27, 79, 92, 0.08);
+  box-shadow: 0 8px 32px rgba(27, 79, 92, 0.06);
+  transform: translateY(-4px);
+}
+
+.flowStep.completed {
+  opacity: 0.7;
+}
+
+.flowStepCircle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: white;
+  border: 2px solid rgba(27, 79, 92, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-bottom: 1.25rem;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.flowStep.active .flowStepCircle {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px rgba(27, 79, 92, 0.06);
+  transform: scale(1.05);
+}
+
+.stepIcon {
+  font-size: 1.8rem;
+  position: absolute;
+  transition: all 0.5s ease;
+}
+
+.flowStep.active .stepIcon {
+  transform: scale(1.1);
+}
+
+.stepNumber {
+  font-family: var(--mono-font);
+  font-size: 0.6rem;
+  font-weight: 600;
+  color: var(--slate);
+  opacity: 0.3;
+  position: absolute;
+  bottom: -2px;
+  right: -2px;
+  background: var(--paper);
+  padding: 0.1rem 0.3rem;
+  border-radius: 4px;
+}
+
+.flowStep.active .stepNumber {
+  opacity: 0.5;
+}
+
+.flowStepContent h3 {
+  font-family: var(--heading-font);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin: 0 0 0.4rem 0;
+  letter-spacing: -0.3px;
+}
+
+.flowStepContent p {
+  font-family: var(--body-font);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--slate);
+  margin: 0 0 0.25rem 0;
+}
+
+.stepDetail {
+  font-family: var(--body-font);
+  font-size: 0.8rem;
+  color: var(--primary);
+  opacity: 0;
+  transition: all 0.5s ease;
+  display: block;
+  margin-top: 0.25rem;
+}
+
+.flowStep.active .stepDetail {
+  opacity: 1;
+}
+
+.nav {
+  display: none;
+  justify-content: center;
+  gap: 0.75rem;
+  margin: 2rem 0 1rem;
+}
+
+.navDot {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.25rem;
+}
+
+.navDot span {
+  display: block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(27, 79, 92, 0.15);
+  transition: all 0.3s ease;
+}
+
+.navDot span.active {
+  background: var(--primary);
+  width: 24px;
+  border-radius: 4px;
+}
+
+.loop {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  max-width: 400px;
+  margin: 2rem auto 0;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(27, 79, 92, 0.06);
+}
+
+.loopLine {
+  flex: 1;
+  height: 1px;
+  background: repeating-linear-gradient(
+    to right,
+    var(--primary) 0px,
+    var(--primary) 4px,
+    transparent 4px,
+    transparent 8px
+  );
+  opacity: 0.15;
+}
+
+.loopLabel {
+  font-family: var(--body-font);
+  font-size: 0.8rem;
+  color: var(--slate);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+@media (max-width: 1024px) {
+  .howItWorks {
+    padding: 4rem 0;
+  }
+
+  .header h2 {
+    font-size: 32px;
+  }
+
+  .flowSteps {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  .flowLine {
+    display: none;
+  }
+
+  .nav {
+    display: flex;
+  }
+
+  .flowStep {
+    opacity: 1;
+    padding: 1.5rem;
+    background: white;
+    border-color: rgba(27, 79, 92, 0.06);
+  }
+
+  .flowStep:not(.active) {
+    opacity: 0.5;
+  }
+
+  .flowStep.active {
+    transform: translateY(0);
+  }
+
+  .stepDetail {
+    display: none;
+  }
+
+  .flowStep.active .stepDetail {
+    display: block;
+  }
+}
+
+@media (max-width: 768px) {
+  .howItWorks {
+    padding: 3.5rem 0;
+  }
+
+  .container {
+    padding: 0 1.5rem;
+  }
+
+  .header {
+    margin-bottom: 3rem;
+  }
+
+  .header h2 {
+    font-size: 28px;
+  }
+
+  .subhead {
+    font-size: 17px;
+  }
+
+  .flowSteps {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .flowStep {
+    flex-direction: row;
+    text-align: left;
+    gap: 1.5rem;
+    padding: 1.25rem;
+    opacity: 1;
+  }
+
+  .flowStep:not(.active) {
+    opacity: 0.4;
+  }
+
+  .flowStepCircle {
+    width: 56px;
+    height: 56px;
+    flex-shrink: 0;
+    margin-bottom: 0;
+  }
+
+  .stepIcon {
+    font-size: 1.3rem;
+  }
+
+  .stepNumber {
+    font-size: 0.5rem;
+  }
+
+  .flowStepContent h3 {
+    font-size: 1rem;
+  }
+
+  .flowStepContent p {
+    font-size: 0.85rem;
+  }
+
+  .ledgerLine {
+    display: none;
+  }
+
+  .loop {
+    padding-top: 1.5rem;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .howItWorks {
+    padding: 2.5rem 0;
+  }
+
+  .container {
+    padding: 0 1rem;
+  }
+
+  .header h2 {
+    font-size: 22px;
+  }
+
+  .label {
+    font-size: 0.6rem;
+    padding: 0.2rem 0.6rem;
+  }
+
+  .subhead {
+    font-size: 15px;
+  }
+
+  .flowStep {
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .flowStepCircle {
+    width: 48px;
+    height: 48px;
+  }
+
+  .stepIcon {
+    font-size: 1.1rem;
+  }
+
+  .flowStepContent h3 {
+    font-size: 0.95rem;
+  }
+
+  .flowStepContent p {
+    font-size: 0.8rem;
+  }
+
+  .loopLabel {
+    font-size: 0.7rem;
+  }
+}
+
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1360px;
+    padding: 0 3rem;
+  }
+
+  .header h2 {
+    font-size: 44px;
+  }
+
+  .flowStepCircle {
+    width: 96px;
+    height: 96px;
+  }
+
+  .stepIcon {
+    font-size: 2.2rem;
+  }
+
+  .flowStepContent h3 {
+    font-size: 1.3rem;
+  }
+
+  .flowStepContent p {
+    font-size: 1rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flowStep,
+  .flowStepCircle,
+  .stepIcon,
+  .flowLineProgress,
+  .stepDetail {
+    transition: none !important;
+    animation: none !important;
+  }
+
+  .flowStep.active .flowStepCircle {
+    transform: none !important;
+  }
+
+  .flowStep.active .stepIcon {
+    transform: none !important;
+  }
+}

@@ -1,0 +1,17 @@
+:root {
+  --primary: #1b4f5c;
+  --paper: #faf7f0;
+  --white: #ffffff;
+  --pill-green: #3f8c6e;
+  --ink: #1f2421;
+  --slate: #5b6661;
+  --alert-amber: #c97a2b;
+
+  --text: #1f2421;
+  --secondary: #5b6661;
+  --accent: #3f8c6e;
+
+  --heading-font: "Söhne", "Inter Tight", -apple-system, sans-serif;
+  --body-font: "Source Sans 3", "Public Sans", -apple-system, sans-serif;
+  --mono-font: "IBM Plex Mono", "JetBrains Mono", monospace;
+}

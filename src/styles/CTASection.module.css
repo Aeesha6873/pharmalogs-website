@@ -1,0 +1,523 @@
+@import "./variables.module.css";
+
+.cta {
+  background: var(--primary);
+  padding: 5rem 0;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  max-width: 100%;
+}
+
+.bgGlow {
+  position: absolute;
+  top: -200px;
+  right: -200px;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.04),
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+.bgGlow::after {
+  display: none;
+}
+
+.ledgerLine {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  gap: 12px;
+  padding: 0 2.5rem;
+  opacity: 0.06;
+  pointer-events: none;
+}
+
+.ledgerLine span {
+  flex: 1;
+  height: 1px;
+  background: white;
+  position: relative;
+}
+
+.ledgerLine span::after {
+  content: "";
+  position: absolute;
+  right: -2px;
+  top: -2px;
+  width: 4px;
+  height: 4px;
+  background: white;
+  border-radius: 50%;
+}
+
+.ledgerLine span:last-child::after {
+  display: none;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.content {
+  text-align: center;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.content.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.badgeWrapper {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 0.25rem 1rem 0.25rem 0.7rem;
+  border-radius: 999px;
+  margin-bottom: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  transition: all 0.3s ease;
+}
+
+.badgeWrapper:hover {
+  background: rgba(255, 255, 255, 0.12);
+  transform: scale(1.03);
+}
+
+.badgeIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 14px;
+  height: 14px;
+  color: white;
+  animation: sparkleSpin 4s linear infinite;
+}
+
+@keyframes sparkleSpin {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(180deg) scale(1.2);
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
+}
+
+.badgeIcon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.badge {
+  font-family: var(--heading-font);
+  font-size: 0.6rem;
+  font-weight: 700;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+}
+
+.content h2 {
+  font-family: var(--heading-font);
+  font-size: 42px;
+  font-weight: 600;
+  line-height: 1.15;
+  color: white;
+  letter-spacing: -1.5px;
+  margin: 0 0 1rem 0;
+}
+
+.titleLine {
+  display: block;
+  opacity: 0;
+  transform: translateX(-20px);
+}
+
+.content.visible .titleLine:nth-child(1) {
+  animation: slideLeft 0.6s ease forwards;
+}
+
+.content.visible .titleLine:nth-child(2) {
+  animation: slideRight 0.6s ease forwards 0.15s;
+}
+
+@keyframes slideLeft {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideRight {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.highlight {
+  color: #f5a623;
+  position: relative;
+}
+
+.highlight::after {
+  content: "";
+  position: absolute;
+  bottom: 2px;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: rgba(245, 166, 35, 0.2);
+  border-radius: 2px;
+}
+
+.subhead {
+  font-family: var(--body-font);
+  font-size: 18px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.7);
+  max-width: 560px;
+  margin: 0 auto 2rem;
+  opacity: 0;
+}
+
+.content.visible .subhead {
+  animation: fadeUp 0.6s ease forwards 0.3s;
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+  }
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  opacity: 0;
+}
+
+.content.visible .actions {
+  animation: fadeUp 0.6s ease forwards 0.4s;
+}
+
+.primary {
+  padding: 0.85rem 2.5rem;
+  border-radius: 8px;
+  background: white;
+  color: var(--primary);
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+  font-family: var(--body-font);
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.primary:hover {
+  background: var(--paper);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+.btnArrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  transition: all 0.4s ease;
+}
+
+.btnArrow svg {
+  width: 100%;
+  height: 100%;
+  stroke: currentColor;
+}
+
+.primary:hover .btnArrow {
+  transform: translateX(4px);
+}
+
+.secondary {
+  padding: 0.85rem 2rem;
+  border-radius: 8px;
+  background: transparent;
+  color: white;
+  border: 1.5px solid rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 1rem;
+  font-family: var(--body-font);
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.secondary:hover {
+  border-color: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.05);
+  transform: translateY(-3px);
+}
+
+.trust {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  font-family: var(--body-font);
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.4);
+  opacity: 0;
+}
+
+.content.visible .trust {
+  animation: fadeUp 0.6s ease forwards 0.5s;
+}
+
+.trustItem {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  transition: all 0.3s ease;
+}
+
+.trustItem:hover {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.trustIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 14px;
+  height: 14px;
+  color: var(--pill-green);
+}
+
+.trustIcon svg {
+  width: 100%;
+  height: 100%;
+  stroke: currentColor;
+}
+
+.divider {
+  opacity: 0.2;
+}
+
+@media (max-width: 768px) {
+  .cta {
+    padding: 4rem 0;
+  }
+
+  .container {
+    padding: 0 1.5rem;
+  }
+
+  .content h2 {
+    font-size: 32px;
+  }
+
+  .subhead {
+    font-size: 16px;
+  }
+
+  .actions {
+    flex-direction: column;
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto 2rem;
+  }
+
+  .primary,
+  .secondary {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .ledgerLine {
+    display: none;
+  }
+
+  .trust {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+  }
+
+  .bgGlow {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .cta {
+    padding: 3rem 0;
+  }
+
+  .container {
+    padding: 0 1rem;
+  }
+
+  .content h2 {
+    font-size: 26px;
+  }
+
+  .subhead {
+    font-size: 15px;
+  }
+
+  .badge {
+    font-size: 0.55rem;
+  }
+
+  .badgeWrapper {
+    padding: 0.2rem 0.8rem 0.2rem 0.6rem;
+  }
+
+  .badgeIcon {
+    width: 12px;
+    height: 12px;
+  }
+
+  .primary,
+  .secondary {
+    font-size: 0.9rem;
+    padding: 0.7rem 1.5rem;
+  }
+
+  .trust {
+    font-size: 0.7rem;
+    gap: 0.3rem;
+  }
+
+  .trustItem {
+    gap: 0.2rem;
+  }
+
+  .trustIcon {
+    width: 12px;
+    height: 12px;
+  }
+
+  .divider {
+    display: none;
+  }
+}
+
+@media (min-width: 1400px) {
+  .container {
+    max-width: 900px;
+  }
+
+  .content h2 {
+    font-size: 50px;
+  }
+
+  .subhead {
+    font-size: 20px;
+  }
+
+  .primary,
+  .secondary {
+    font-size: 1.05rem;
+    padding: 1rem 3rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .badgeIcon {
+    animation: none !important;
+  }
+  .content {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .titleLine {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .subhead {
+    opacity: 1 !important;
+  }
+  .actions {
+    opacity: 1 !important;
+  }
+  .trust {
+    opacity: 1 !important;
+  }
+  .highlight::after {
+    transform: scaleX(1) !important;
+  }
+
+  .primary:hover,
+  .secondary:hover {
+    transform: none !important;
+  }
+  .badgeWrapper:hover {
+    transform: none !important;
+  }
+}
+
+@media print {
+  .cta {
+    padding: 1rem 0 !important;
+    background: #eee !important;
+    color: #000 !important;
+  }
+  .ledgerLine,
+  .bgGlow {
+    display: none !important;
+  }
+  .content h2 {
+    color: #000 !important;
+  }
+  .subhead {
+    color: #666 !important;
+  }
+  .primary {
+    background: #ddd !important;
+    color: #000 !important;
+  }
+  .secondary {
+    border: 1px solid #ccc !important;
+    color: #000 !important;
+  }
+  .badge {
+    color: #000 !important;
+    background: #ddd !important;
+  }
+  .trust {
+    color: #999 !important;
+  }
+}
